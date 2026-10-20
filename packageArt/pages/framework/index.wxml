@@ -1,0 +1,22 @@
+<view class="wrap {{theme}}">
+  <view class="title">艺术概论六章知识框架</view>
+  <view class="sub">来自你的校订版文档。先看一章的结构，再进入题目背诵；点击图片可以放大。</view>
+
+  <scroll-view class="chapter-tabs" scroll-x="true">
+    <view class="tab {{activeChapter===0?'on':''}}" data-no="0" bindtap="pickChapter">全部</view>
+    <view class="tab {{activeChapter===item.chapterNo?'on':''}}" wx:for="{{chapters}}" wx:key="chapterNo" data-no="{{item.chapterNo}}" bindtap="pickChapter">第{{item.chapterNo}}章</view>
+  </scroll-view>
+
+  <block wx:for="{{visible}}" wx:key="chapterNo">
+    <view class="section">
+      <view class="section-head">
+        <text class="chapter-title">{{item.title}}</text>
+        <text class="count">{{item.images.length}} 张框架图</text>
+      </view>
+      <view class="hint">原文框架图 · 建议先记主线，再回到本章题目</view>
+      <image class="framework-image" wx:for="{{item.images}}" wx:for-item="src" wx:key="src" src="{{src}}" mode="widthFix" data-src="{{src}}" data-chapter="{{item.chapterNo}}" bindtap="previewImage" binderror="onImageError" />
+    </view>
+  </block>
+
+  <view class="notice">知识框架来自用户提供文档 · 题目答案仍以题库标准答案为准</view>
+</view>

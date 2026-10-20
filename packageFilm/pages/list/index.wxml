@@ -1,0 +1,47 @@
+<view class="wrap {{theme}}">
+  <view class="list-head"><text class="list-title">电影概论</text><text class="back-home" bindtap="backPrevious">← 返回上一级</text></view>
+  <view class="tabs">
+    <view class="tab {{tab==='recite'?'on':''}}" data-tab="recite" bindtap="switchTab">背诵</view>
+    <view class="tab {{tab==='drill'?'on':''}}" data-tab="drill" bindtap="switchTab">刷题</view>
+    <view class="tab {{tab==='search'?'on':''}}" data-tab="search" bindtap="switchTab">搜索</view>
+  </view>
+
+  <block wx:if="{{tab==='recite'}}">
+    <view class="afterclass-link" bindtap="openAfterClass">课后题目录（按章节） →</view>
+    <block wx:if="{{viewMode==='chapters'}}">
+      <view class="directory-note">电影概论目录 · 按教材顺序</view>
+      <view class="chapter" wx:for="{{chapters}}" wx:key="chapterNo" data-no="{{item.chapterNo}}" bindtap="openChapter">
+        <text>{{item.chapter}}</text><text class="cnt">{{item.count}} 题 · 完成 {{item.completion}}%</text>
+      </view>
+      <!-- 理论篇（批评框架）归入统一教材目录，不再单独分板块。 -->
+      <block wx:if="{{false}}"><view wx:for="{{theoryChapters}}" wx:key="chapterNo">{{item.chapter}}</view></block>
+    </block>
+    <block wx:else>
+      <view class="filters">
+        <text class="f {{filter.type===''?'on':''}}" data-type="" bindtap="filterType">全部</text>
+        <text class="f {{filter.type==='名词解释'?'on':''}}" data-type="名词解释" bindtap="filterType">名词解释</text>
+        <text class="f {{filter.type==='简答题'?'on':''}}" data-type="简答题" bindtap="filterType">简答</text>
+        <text class="f {{filter.type==='论述题'?'on':''}}" data-type="论述题" bindtap="filterType">论述</text>
+      </view>
+      <item-card wx:for="{{items}}" wx:key="id" item="{{item}}" bindtapitem="openDetail" />
+    </block>
+  </block>
+
+  <block wx:if="{{tab==='drill'}}">
+    <view class="drill-filter-label">选择刷题类型</view>
+    <view class="filters drill-filters">
+      <text class="f {{drillType===''?'on':''}}" data-type="" bindtap="filterDrillType">全部</text>
+      <text class="f {{drillType==='名词解释'?'on':''}}" data-type="名词解释" bindtap="filterDrillType">名词解释</text>
+      <text class="f {{drillType==='简答题'?'on':''}}" data-type="简答题" bindtap="filterDrillType">简答题</text>
+      <text class="f {{drillType==='论述题'?'on':''}}" data-type="论述题" bindtap="filterDrillType">论述题</text>
+    </view>
+    <view class="mode" wx:for="{{modes}}" wx:key="mode" data-mode="{{item.mode}}" bindtap="startDrill">
+      <view class="mode-name">{{item.name}}</view>
+      <view class="mode-desc">{{item.desc}}</view>
+    </view>
+  </block>
+
+  <block wx:if="{{tab==='search'}}">
+    <input class="search" placeholder="本板块内搜索" placeholder-class="search-placeholder" confirm-type="search" bindconfirm="inBookSearch" />
+  </block>
+</view>

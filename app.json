@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/gate/index",
+    "pages/home/index",
+    "pages/search/index",
+    "pages/mine/index",
+    "pages/web-search/index",
+    "pages/feedback/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageArt",
+      "pages": [
+        "pages/list/index",
+        "pages/framework/index",
+        "pages/afterclass/index",
+        "pages/detail/index",
+        "pages/drill/index",
+        "pages/paper/index"
+      ]
+    },
+    {
+      "root": "packageFilm",
+      "pages": [
+        "pages/list/index",
+        "pages/outline/index",
+        "pages/afterclass/index",
+        "pages/detail/index",
+        "pages/drill/index",
+        "pages/timeline/index",
+        "pages/entity/index"
+      ]
+    }
+  ],
+  "tabBar": {
+    "color": "#8C8880",
+    "selectedColor": "#8A9A8B",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/search/index",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#F5F3EF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F3EF"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

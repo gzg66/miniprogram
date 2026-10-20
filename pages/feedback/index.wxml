@@ -1,0 +1,22 @@
+<view class="wrap {{theme}}">
+  <view class="head"><text class="title">意见反馈 / 题目补充</text><text class="back" bindtap="back">返回</text></view>
+  <view class="card">
+    <view class="label">反馈类型</view>
+    <view class="chips">
+      <text class="chip {{type==='题目纠错'?'on':''}}" data-type="题目纠错" bindtap="chooseType">题目纠错</text>
+      <text class="chip {{type==='补充题目'?'on':''}}" data-type="补充题目" bindtap="chooseType">补充题目</text>
+      <text class="chip {{type==='功能建议'?'on':''}}" data-type="功能建议" bindtap="chooseType">功能建议</text>
+    </view>
+    <view class="label">所属板块</view>
+    <view class="chips">
+      <text class="chip {{book==='艺术概论'?'on':''}}" data-book="艺术概论" bindtap="chooseBook">艺术概论</text>
+      <text class="chip {{book==='电影概论'?'on':''}}" data-book="电影概论" bindtap="chooseBook">电影概论</text>
+    </view>
+    <input class="input" data-field="chapter" value="{{chapter}}" bindinput="onInput" placeholder="章节，如：第3章 / 第21章" />
+    <input class="input" data-field="title" value="{{title}}" bindinput="onInput" placeholder="题目标题（可选）" />
+    <textarea class="textarea" data-field="content" value="{{content}}" bindinput="onInput" maxlength="5000" placeholder="请写清题目、错误位置或希望补充的内容" />
+    <view class="message">{{message}}</view>
+    <button class="submit" loading="{{busy}}" disabled="{{busy}}" bindtap="submit">提交反馈</button>
+  </view>
+  <view class="notice">提交后会保存到管理员后台，题库内容仍以本地数据为准。</view>
+</view>

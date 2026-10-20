@@ -1,0 +1,14 @@
+<view class="wrap {{theme}}">
+  <view class="hello">考研背诵 · 影视艺术</view>
+  <view wx:for="{{cards}}" wx:key="key" class="entry {{item.key}}" data-route="{{item.route}}" bindtap="onOpen">
+    <view class="entry-title">{{item.book}}</view>
+    <view class="entry-desc">{{item.desc}}</view>
+    <view class="entry-meta">{{item.count}} 个考点 · 已刷 {{item.answered}} 题 · 记住率 {{item.rate}}% · 今日待复习 {{item.due}} 题</view>
+  </view>
+  <view class="btn" bindtap="onContinue">继续上次刷题</view>
+
+  <view class="axis-entry" bindtap="onTimeline">
+    <view class="entry-title">电影双轴时间轴</view>
+    <view class="entry-desc">横轴年份 · 纵轴世纪 · 同段并列各国运动与人名作品</view>
+  </view>
+</view>

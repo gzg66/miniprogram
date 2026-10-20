@@ -1,0 +1,25 @@
+/* packageArt/pages/paper/index.wxss */
+.wrap { padding: 24rpx 24rpx 80rpx; }
+.paper-pick { white-space: nowrap; margin-bottom: 16rpx; }
+.p { display: inline-block; margin-right: 12rpx; padding: 10rpx 26rpx; background: var(--card); border-radius: 999rpx; color: var(--muted); }
+.p.on { background: var(--primary); color: #FFFFFF; }
+.modes { display: flex; margin-bottom: 20rpx; }
+.m { margin-right: 16rpx; padding: 12rpx 28rpx; background: var(--card); border-radius: 999rpx; color: var(--muted); font-size: 28rpx; }
+.m.on { background: var(--secondary); color: #FFFFFF; }
+.exam-box { background: var(--card); border: 1rpx solid var(--border); border-radius: 20rpx; padding: 28rpx; margin-bottom: 24rpx; }
+.exam-box.running { border-color: rgba(135,153,139,.55); }
+.exam-box.finished { border-color: rgba(199,174,134,.75); }
+.exam-title { font-size: 32rpx; font-weight: 700; color: var(--text); }
+.exam-desc { color: var(--muted); font-size: 26rpx; line-height: 1.7; margin: 10rpx 0 18rpx; }
+.timer { font-size: 42rpx; letter-spacing: 3rpx; color: var(--primary-deep); font-weight: 700; margin: 12rpx 0; }
+.start-btn { margin: 0; color: #FFFFFF; background: var(--primary); border-radius: 999rpx; font-size: 28rpx; }
+.locked-note { background: var(--card); border-radius: 20rpx; padding: 45rpx 28rpx; color: var(--muted); text-align: center; }
+.head { background: var(--card); border-radius: 20rpx; padding: 28rpx; margin-bottom: 20rpx; }
+.title { font-size: 36rpx; font-weight: 700; color: var(--text); }
+.meta { font-size: 26rpx; color: var(--muted); margin-top: 8rpx; }
+.ins { background: var(--card); border-radius: 20rpx; padding: 24rpx; margin-bottom: 24rpx; }
+.ins-li { font-size: 26rpx; color: var(--muted); line-height: 1.75; margin-bottom: 8rpx; }
+.sec-title { font-size: 34rpx; font-weight: 700; margin: 28rpx 0 14rpx; color: var(--text); }
+.qi { background: var(--card); border-radius: 16rpx; padding: 24rpx; margin-bottom: 16rpx; }
+.stem { font-size: 32rpx; font-weight: 600; line-height: 1.75; color: var(--text); }
+.src { font-size: 24rpx; color: var(--muted); margin: 14rpx 0 10rpx; }

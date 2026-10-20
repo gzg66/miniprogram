@@ -1,0 +1,22 @@
+<view class="wrap {{theme}}">
+  <input class="search" value="{{q}}" placeholder="搜名词、简答、论述、人物、流派…" placeholder-class="search-placeholder" bindinput="onInput" bindconfirm="onConfirm" confirm-type="search" adjust-position="true" />
+  <view class="filters">
+    <text class="f {{book===''?'on':''}}" data-book="" bindtap="setBook">全部</text>
+    <text class="f {{book==='艺术概论'?'on':''}}" data-book="艺术概论" bindtap="setBook">艺术</text>
+    <text class="f {{book==='电影概论'?'on':''}}" data-book="电影概论" bindtap="setBook">电影</text>
+    <text class="f {{type==='名词解释'?'on':''}}" data-type="名词解释" bindtap="setType">名词</text>
+    <text class="f {{type==='简答题'?'on':''}}" data-type="简答题" bindtap="setType">简答</text>
+    <text class="f {{type==='论述题'?'on':''}}" data-type="论述题" bindtap="setType">论述</text>
+  </view>
+
+  <view wx:if="{{q && layer}}" class="source-note">当前结果来自{{layer}}；题库优先，电脑文档用于补充。</view>
+  <view wx:if="{{q && !results.length}}" class="empty">
+    <view>题库和电脑文档都没有命中「{{q}}」</view>
+    <button class="web-btn" bindtap="openWebSearch">去网上搜索</button>
+  </view>
+  <view class="row" wx:for="{{results}}" wx:key="id" data-row="{{item.row}}" bindtap="open">
+    <view class="r1"><text class="t">{{item.row.title}}</text><freq-tag freq="{{item.row.freq}}" /></view>
+    <view class="r2">{{item.row.source || item.row.book}} · {{item.row.locator || item.row.chapter || item.row.type}}</view>
+    <view class="r3" wx:if="{{item.row.snippet}}">{{item.row.snippet}}</view>
+  </view>
+</view>

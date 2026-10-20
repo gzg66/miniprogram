@@ -1,0 +1,18 @@
+<view class="wrap {{theme}}">
+  <view class="setting-row"><text>夜间模式</text><switch checked="{{theme==='dark'}}" bindchange="toggleTheme" /></view>
+  <view class="feedback-entry" bindtap="openFeedback">意见反馈 / 补充题目 <text>提交错误、补充内容或功能建议 →</text></view>
+  <view class="block" wx:for="{{books}}" wx:key="key">
+    <view class="head">
+      <text class="name">{{item.book}}</text>
+      <text class="clear" data-key="{{item.key}}" bindtap="clear">清空记录</text>
+    </view>
+    <view class="stat">已刷 {{item.stats.answered}} · 会 {{item.stats.known}} · 不会 {{item.stats.unknown}} · 记住率 {{item.rate}}%</view>
+    <view class="sub">错题本（{{item.wrongCount}}）</view>
+    <view class="li" wx:for="{{item.wrongList}}" wx:for-item="w" wx:key="id" data-id="{{w.id}}" data-book="{{item.key}}" bindtap="openItem">· {{w.question}}</view>
+    <view class="sub">收藏（{{item.favCount}}）</view>
+    <view class="li" wx:for="{{item.favList}}" wx:for-item="f" wx:key="id" data-id="{{f.id}}" data-book="{{item.key}}" bindtap="openItem">· {{f.question}}</view>
+  </view>
+
+  <view class="notice">私人开发 · 禁止外传 · 未经许可不得传播或转售</view>
+  <view class="danger" bindtap="clearGate">清除邀请码（退出后不可再次使用）</view>
+</view>

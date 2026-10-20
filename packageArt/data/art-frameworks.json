@@ -1,0 +1,55 @@
+{
+ "title": "艺术概论六章知识框架",
+ "source": "艺术概论六章高频题库与背诵答案_框架前置校订版.docx",
+ "note": "原文知识框架图，按章节独立整理；建议先看框架，再进入本章题目。",
+ "chapters": [
+  {
+   "chapterNo": 1,
+   "title": "第一章 艺术本质论",
+   "images": [
+    "/packageArt/assets/framework/art-1-1.jpg",
+    "/packageArt/assets/framework/art-1-2.jpg",
+    "/packageArt/assets/framework/art-1-3.jpg"
+   ]
+  },
+  {
+   "chapterNo": 2,
+   "title": "第二章 艺术门类论",
+   "images": [
+    "/packageArt/assets/framework/art-2-1.jpg",
+    "/packageArt/assets/framework/art-2-2.jpg",
+    "/packageArt/assets/framework/art-2-3.jpg"
+   ]
+  },
+  {
+   "chapterNo": 3,
+   "title": "第三章 艺术发展论",
+   "images": [
+    "/packageArt/assets/framework/art-3-1.jpg",
+    "/packageArt/assets/framework/art-3-2.jpg",
+    "/packageArt/assets/framework/art-3-3.jpg"
+   ]
+  },
+  {
+   "chapterNo": 4,
+   "title": "第四章 艺术创作论",
+   "images": [
+    "/packageArt/assets/framework/art-4-1.jpg"
+   ]
+  },
+  {
+   "chapterNo": 5,
+   "title": "第五章 艺术作品论",
+   "images": [
+    "/packageArt/assets/framework/art-5-1.jpg"
+   ]
+  },
+  {
+   "chapterNo": 6,
+   "title": "第六章 艺术接受论",
+   "images": [
+    "/packageArt/assets/framework/art-6-1.jpg"
+   ]
+  }
+ ]
+}

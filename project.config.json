@@ -1,0 +1,38 @@
+{
+  "description": "考研背诵小程序（艺术概论 / 电影概论）",
+  "miniprogramRoot": "./",
+  "compileType": "miniprogram",
+  "appid": "wxf5a03dcb71b4d571",
+  "projectname": "kaoyan-beisong",
+  "libVersion": "3.0.0",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "packNpmManually": false,
+    "ignoreDevUnusedFiles": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}

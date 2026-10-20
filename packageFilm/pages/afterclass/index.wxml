@@ -1,0 +1,29 @@
+<view class="wrap {{theme}}">
+  <view class="head"><text class="title">{{title}}</text><text class="back" bindtap="back">← {{view==='detail'?'返回本章课后题':(chapterNo?'返回课后题目录':'返回上一级')}}</text></view>
+  <view class="policy">题目严格使用《电影概论》章节 / 小节标题，答案仅显示教材原文整理，不补充课外知识。</view>
+  <block wx:if="{{view==='chapters'}}">
+    <view class="directory-note">课后题目录 · 按教材章节排列</view>
+    <view class="chapter" wx:for="{{chapters}}" wx:key="chapterNo" data-no="{{item.chapterNo}}" bindtap="openChapter">
+      <text>{{item.chapter}}</text><text class="cnt">{{item.count}} 题 →</text>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{view==='items'}}">
+    <view class="chapter-title">{{chapter}}</view>
+    <view class="count">{{items.length}} 题 · 每题均标注书本对应标题来源</view>
+    <view class="item" wx:for="{{items}}" wx:for-item="questionItem" wx:key="id" data-id="{{questionItem.id}}" bindtap="openItem">
+    <view class="type">{{questionItem.type}}</view>
+    <view class="question">题目：{{questionItem.question}}</view>
+    <view class="source">书本对应标题：{{questionItem.sourceTitle}}</view>
+    <view class="tap-hint">点击查看完整题目与答案 →</view>
+    </view>
+    </block>
+    <block wx:else>
+      <view class="detail-title"><text class="type">{{selected.type}}</text><text class="question">{{selected.question}}</text></view>
+      <view class="source">书本对应标题：{{selected.sourceTitle}}</view>
+      <view class="subhead">完整答案（教材原文整理） · {{selected.answerChars}}字<text wx:if="{{selected.type==='简答题'}}">（目标约600字）</text><text wx:if="{{selected.type==='论述题'}}">（目标约1000字）</text></view>
+      <view class="answer" wx:for="{{selected.answer}}" wx:for-item="answerLine" wx:for-index="answerIndex" wx:key="answerIndex">{{answerLine}}</view>
+      <view class="chips"><text class="chip" wx:for="{{selected.keyPoints}}" wx:for-item="point" wx:for-index="pointIndex" wx:key="pointIndex">{{point}}</text></view>
+    </block>
+  </block>
+</view>

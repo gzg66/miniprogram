@@ -1,0 +1,6 @@
+.tag { display: inline-block; font-size: 24rpx; padding: 4rpx 14rpx; border-radius: 999rpx; color: #fff; }
+.tag-high { background: var(--freq-high); }
+.tag-mid { background: var(--freq-mid); }
+.tag-low { background: var(--freq-low); }
+.tag-unrated { background: var(--muted); }
+.stars { opacity: .85; }

@@ -1,0 +1,24 @@
+<view class="wrap {{theme}}" wx:if="{{item}}">
+  <view class="back-catalog" bindtap="backToChapter">← 返回本章目录</view>
+  <view class="head">
+    <freq-tag freq="{{item.frequency}}" stars="{{item.stars}}" />
+    <text class="chapter">{{item.chapter}} · {{item.type}}</text>
+  </view>
+  <view class="detail-progress">本章第 {{idx+1}} / {{chapterItems.length}} 题</view>
+  <view class="q">{{item.question}}</view>
+  <view wx:if="{{!revealed}}" class="answer-toggle" bindtap="toggleAnswer">先回忆，点击展开答案</view>
+  <block wx:else>
+    <view class="annotation-tip">开启画笔后，可在背诵内容上自由勾画；笔迹会自动保存</view>
+    <five-block item="{{item}}" drawings="{{drawings}}" bind:drawing="onDrawingChange" />
+    <view class="answer-toggle secondary" bindtap="toggleAnswer">收起答案</view>
+  </block>
+  <view class="note-box" wx:if="{{note}}"><text class="note-title">我的备注</text><text class="note-content">{{note}}</text></view>
+  <view class="ops">
+    <view class="op {{fav?'on':''}}" bindtap="onFav">{{fav?'已收藏':'收藏'}}</view>
+    <view class="op" bindtap="onWrong">加入错题</view>
+    <view class="op {{note?'on':''}}" bindtap="editNote">{{note?'编辑备注':'添加备注'}}</view>
+    <view class="op" bindtap="prev">上一题</view>
+    <view class="op" bindtap="next">下一题</view>
+  </view>
+  <view class="notice">私人开发 · 禁止外传 · 未经许可不得传播或转售</view>
+</view>

@@ -1,0 +1,76 @@
+<!-- packageFilm/pages/entity/index.wxml —— 导演/流派专页：风格要点 + 作品按年份 + 相关知识条目 -->
+<view class="wrap {{theme}}">
+  <block wx:if="{{kind==='director'}}">
+    <view class="head">
+      <view class="name">{{entity.name}}</view>
+      <view class="meta">{{entity.country}}　·　{{entity.school}}</view>
+    </view>
+
+    <view class="sec">创作特点</view>
+    <view class="card">
+      <view class="para feature" wx:for="{{entity.creativeFeatures}}" wx:key="*this" wx:for-item="feature">· {{feature}}</view>
+      <view class="para" wx:if="{{!entity.creativeFeatures}}">{{entity.style}}</view>
+      <view class="src">风格概括：{{entity.style}}</view>
+      <view class="src">来源：{{entity.styleSource}}</view>
+    </view>
+
+    <view class="sec">作品（按年份）</view>
+    <view class="card" wx:for="{{entity.films}}" wx:key="title" wx:for-item="f">
+      <view class="frow"><text class="fyear">{{f.year}}</text><text class="ftitle">{{f.title}}</text></view>
+      <view class="line">风格：{{f.style}}</view>
+      <view class="line">意义：{{f.meaning}}</view>
+      <view class="src">来源：{{f.source}}</view>
+    </view>
+
+    <view class="sec">相关知识条目</view>
+    <view class="card">
+      <view class="rel" wx:for="{{entity.related}}" wx:key="id" wx:for-item="r" data-id="{{r.id}}" bindtap="openRelated">· {{r.question}}</view>
+    </view>
+  </block>
+
+  <block wx:elif="{{kind==='movement'}}">
+    <view class="head">
+      <view class="name">{{entity.name}}</view>
+      <view class="meta">{{entity.country}}　·　{{entity.years}}</view>
+    </view>
+
+    <view class="sec">一页背诵顺序</view>
+    <view class="card logic">
+      <view class="logic-line"><text class="logic-no">1</text><text>先记时代、社会与技术背景</text></view>
+      <view class="logic-line"><text class="logic-no">2</text><text>再记运动如何形成、发展及其转折</text></view>
+      <view class="logic-line"><text class="logic-no">3</text><text>最后落到主张、人物作品与后世影响</text></view>
+    </view>
+
+    <view class="sec">运动核心主张</view>
+    <view class="card"><view class="para">{{entity.claim}}</view><view class="src">来源：{{entity.source}}</view></view>
+
+    <view class="sec">代表人物</view>
+    <view class="card"><view class="para">{{entity.people}}</view></view>
+
+    <view class="sec">代表作品</view>
+    <view class="card"><view class="para">{{entity.films}}</view></view>
+
+    <view class="sec">社会背景</view>
+    <view class="card"><view class="para">{{entity.background}}</view><view class="src">来源：{{entity.source}}</view></view>
+
+    <view class="sec">形成与发展经过</view>
+    <view class="card"><view class="para">{{entity.development}}</view><view class="src">时间范围：{{entity.years}}</view></view>
+
+    <view class="sec">历史意义</view>
+    <view class="card"><view class="para">{{entity.historicalSignificance}}</view></view>
+
+    <view class="sec">重点术语</view>
+    <view class="card terms"><text class="term" wx:for="{{entity.keyTerms}}" wx:key="*this" wx:for-item="term">{{term}}</text></view>
+
+    <view class="sec">相关知识条目</view>
+    <view class="card">
+      <view class="rel" wx:for="{{entity.related}}" wx:key="id" wx:for-item="r" data-id="{{r.id}}" bindtap="openRelated">· {{r.question}}</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="card"><view class="para">没有找到这个导演或流派。可以回搜索页换个名字试试。</view></view>
+  </block>
+
+  <view class="notice">私人开发 · 禁止外传 · 未经许可不得传播或转售</view>
+</view>

@@ -1,0 +1,12 @@
+.wrap { padding: 36rpx 32rpx 48rpx; }
+.hello { font-size: 42rpx; font-weight: 700; margin: 16rpx 0 34rpx; letter-spacing: 1rpx; }
+.entry { border-radius: 28rpx; padding: 38rpx; margin-bottom: 24rpx; color: #fff; box-shadow: 0 12rpx 28rpx rgba(92,78,65,.10); }
+.entry.art { background: linear-gradient(135deg, #87998B, #AEB5AA); }
+.entry.film { background: linear-gradient(135deg, #91A6AD, #B6B0A9); }
+.entry-title { font-size: 44rpx; font-weight: 700; letter-spacing: 1rpx; }
+.entry-desc { font-size: 26rpx; opacity: .92; margin-top: 10rpx; }
+.entry-meta { font-size: 24rpx; opacity: .84; margin-top: 22rpx; }
+.btn { margin-top: 18rpx; text-align: center; padding: 27rpx; border-radius: 999rpx; background: var(--card); color: var(--primary-deep); font-weight: 600; border: 1rpx solid var(--border); }
+.axis-entry { margin-top: 18rpx; padding: 28rpx; border-radius: 22rpx; background: var(--card); border: 1rpx solid var(--border); border-left: 8rpx solid var(--secondary); box-shadow: 0 8rpx 22rpx rgba(92,78,65,.05); }
+.axis-title { font-size: 32rpx; font-weight: 700; color: var(--text); }
+.axis-desc { font-size: 24rpx; color: var(--muted); margin-top: 8rpx; line-height: 1.7; }

@@ -1,0 +1,13 @@
+<!-- pages/gate/index.wxml —— 邀请码门禁；不含传播声明（按需求只标在详情页与我的页） -->
+<view class="gate {{theme}}">
+  <view class="brand">考研背诵</view>
+  <view class="sub">艺术概论 · 电影概论</view>
+
+  <view class="card">
+    <view class="label">请输入邀请码</view>
+    <input class="ipt" value="{{code}}" placeholder="大写字母与数字，可含连字符" bindinput="onInput" bindconfirm="submit" maxlength="24" confirm-type="done" />
+    <view class="err" wx:if="{{err}}">{{err}}</view>
+    <button class="btn" loading="{{busy}}" disabled="{{busy}}" bindtap="submit">进入</button>
+    <view class="hint">邀请码由管理员生成，只能使用一次</view>
+  </view>
+</view>

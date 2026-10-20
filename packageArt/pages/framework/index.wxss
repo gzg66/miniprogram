@@ -1,0 +1,13 @@
+.wrap { padding: 28rpx 24rpx 70rpx; }
+.title { font-size: 38rpx; font-weight: 700; color: var(--text); }
+.sub { color: var(--muted); font-size: 25rpx; line-height: 1.7; margin-top: 8rpx; }
+.chapter-tabs { display: flex; white-space: nowrap; margin: 22rpx 0 18rpx; }
+.tab { display: inline-block; background: var(--card); color: var(--muted); border-radius: 999rpx; padding: 12rpx 24rpx; margin-right: 12rpx; font-size: 25rpx; }
+.tab.on { color: #fff; background: var(--primary); }
+.section { background: var(--card); border: 1rpx solid var(--border); border-radius: 20rpx; padding: 22rpx; margin-bottom: 18rpx; box-shadow: 0 7rpx 18rpx rgba(92,78,65,.04); }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12rpx; }
+.chapter-title { font-size: 31rpx; font-weight: 700; color: var(--text); }
+.count { color: var(--muted); font-size: 23rpx; white-space: nowrap; }
+.hint { color: var(--secondary); font-size: 23rpx; margin: 8rpx 0 14rpx; }
+.framework-image { width: 100%; display: block; border-radius: 12rpx; margin-top: 14rpx; background: #f5f3ef; }
+.notice { margin-top: 26rpx; padding: 18rpx 22rpx; text-align: center; font-size: 23rpx; color: var(--muted); background: var(--card); border-radius: 16rpx; }

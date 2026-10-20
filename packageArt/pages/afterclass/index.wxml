@@ -1,0 +1,15 @@
+<view class="wrap {{theme}}">
+  <view class="head"><text class="title">{{title}}</text><text class="back" bindtap="back">← 返回上一级</text></view>
+  <view class="policy">题目按教材章节标题整理，答案仅显示教材原文整理，不补充课外知识。</view>
+  <view class="tabs">
+    <text wx:for="{{blocks}}" wx:key="*this" class="tab {{active===item?'on':''}}" data-type="{{item}}" bindtap="switchBlock">{{item}}</text>
+  </view>
+  <view class="count">{{items.length}} 题 · 每题均标注书本对应标题来源</view>
+  <view class="item" wx:for="{{items}}" wx:key="id">
+    <view class="question">{{item.question}}</view>
+    <view class="source">书本对应标题：{{item.sourceTitle}}</view>
+    <view class="subhead">标准答案（教材原文整理） · 约{{item.answerChars}}字<span wx:if="{{item.type==='简答题'}}">（目标约600字）</span><span wx:if="{{item.type==='论述题'}}">（目标约1000字）</span></view>
+    <view class="answer" wx:for="{{item.answer}}" wx:for-item="line" wx:key="*this">{{line}}</view>
+    <view class="chips"><text class="chip" wx:for="{{item.keyPoints}}" wx:key="*this">{{item}}</text></view>
+  </view>
+</view>

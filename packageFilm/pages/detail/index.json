@@ -1,0 +1,7 @@
+{
+ "usingComponents": {
+ "five-block": "/components/five-block/index",
+  "freq-tag": "/components/freq-tag/index"
+ },
+ "navigationBarTitleText": "电影概论"
+}

@@ -1,0 +1,28 @@
+<view class="wrap {{theme}}">
+  <view wx:if="{{empty}}" class="empty">本模式暂无可刷题目（错题本／收藏夹为空，或本板块暂无分级条目）</view>
+
+  <block wx:if="{{q && !done}}">
+    <view class="bar"><text>{{i+1}} / {{total}}</text><freq-tag freq="{{q.frequency}}" /></view>
+    <view class="q">{{q.question}}</view>
+    <view class="tip">{{q.topic}} · {{q.chapter}}</view>
+    <view class="drill-fav {{fav?'on':''}}" bindtap="onFav">{{fav?'★ 已收藏':'☆ 收藏本题'}}</view>
+    <view class="review-entry" bindtap="onReview">今日复习（只取到期条目）</view>
+
+    <view wx:if="{{!reveal}}" class="act" bindtap="onReveal">回忆一下，展开答案</view>
+    <block wx:else>
+      <five-block item="{{q}}" />
+      <view class="judge">
+        <view class="j no" data-grade="fail" bindtap="onJudge">完全不会</view>
+        <view class="j mid" data-grade="vague" bindtap="onJudge">有点印象</view>
+        <view class="j yes" data-grade="ok" bindtap="onJudge">记住了</view>
+        <view class="j top" data-grade="easy" bindtap="onJudge">非常熟练</view>
+      </view>
+    </block>
+  </block>
+
+  <view wx:if="{{done}}" class="result">
+    <view class="result-title">本轮完成</view>
+    <view class="result-line">共 {{stats.answered}} 题 · 会 {{stats.known}} · 不会 {{stats.unknown}}</view>
+    <view class="act" bindtap="onRestart">再刷一轮</view>
+  </view>
+</view>

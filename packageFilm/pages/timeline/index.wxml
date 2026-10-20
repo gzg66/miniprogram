@@ -1,0 +1,67 @@
+<!-- packageFilm/pages/timeline/index.wxml —— 每年一张背诵卡；同年事件并列 -->
+<view class="wrap {{theme}}">
+  <view class="title">电影史年份背诵</view>
+  <view class="sub">每张卡只记一个年份：发生了什么、在哪里、谁和哪些作品。{{entries.length}} 个时间点按年份展开，更适合遮住答案后自测。</view>
+
+  <view class="mode-switch">
+    <text class="mode {{mode=='memory'?'on':''}}" data-mode="memory" bindtap="toggleMode">年份背诵卡</text>
+    <text class="mode {{mode=='axis'?'on':''}}" data-mode="axis" bindtap="toggleMode">世纪总览</text>
+  </view>
+
+  <input class="ipt" value="{{query}}" placeholder="搜年份 / 运动 / 国家 / 人物 / 片名" bindinput="onSearchInput" confirm-type="search" />
+
+  <view class="chips">
+    <text class="chip {{filter.century===19?'on':''}}" data-century="19" bindtap="pickCentury">19 世纪</text>
+    <text class="chip {{filter.century===20?'on':''}}" data-century="20" bindtap="pickCentury">20 世纪</text>
+    <text class="chip {{filter.century===21?'on':''}}" data-century="21" bindtap="pickCentury">21 世纪</text>
+    <text class="chip {{filter.country==='法国'?'on':''}}" data-country="法国" bindtap="pickCountry">法国</text>
+    <text class="chip {{filter.country==='美国'?'on':''}}" data-country="美国" bindtap="pickCountry">美国</text>
+    <text class="chip {{filter.country==='中国'?'on':''}}" data-country="中国" bindtap="pickCountry">中国</text>
+    <text class="chip ghost" bindtap="clearFilter">清空</text>
+  </view>
+
+  <view class="count">当前 {{entries.length}} 条事件 · {{years.length}} 个年份（总 {{total}} 条）</view>
+
+  <block wx:if="{{mode=='memory'}}">
+    <view class="year-card" wx:for="{{years}}" wx:key="year" wx:for-item="yearGroup">
+      <view class="year-head">
+        <text class="year-big">{{yearGroup.year}}</text>
+        <text class="year-count">{{yearGroup.entries.length}} 条记忆点</text>
+      </view>
+      <view class="memory-card" wx:for="{{yearGroup.entries}}" wx:key="movement" wx:for-item="e" data-name="{{e.movement}}" bindtap="openEntity">
+        <view class="tag-row">
+          <text class="cty">{{e.country}}</text>
+          <text class="place">📍 {{e.place}}</text>
+        </view>
+        <view class="mv">{{e.movement}}</view>
+        <view class="label">发生了什么</view>
+        <view class="claim">{{e.claim}}</view>
+        <view class="line" wx:if="{{e.people.length}}">人物：{{e.people}}</view>
+        <view class="line" wx:if="{{e.films.length}}">作品：{{e.films}}</view>
+        <view class="memory">记忆句：{{e.memory}}</view>
+        <view class="src">来源：{{e.source}} · 点此查看流派专页</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{mode=='axis'}}">
+    <block wx:for="{{centuries}}" wx:key="century" wx:for-item="cent">
+      <view class="axis">纵轴 · {{cent.century}} 世纪</view>
+      <view class="card" wx:for="{{cent.entries}}" wx:key="movement" wx:for-item="e" data-name="{{e.movement}}" bindtap="openEntity">
+        <view class="row">
+          <text class="year">{{e.year}}</text>
+          <text class="cty">{{e.country}}</text>
+          <text class="mv">{{e.movement}}</text>
+        </view>
+        <view class="place">📍 {{e.place}}</view>
+        <view class="line">人物：{{e.people}}</view>
+        <view class="line">代表作：{{e.films}}</view>
+        <view class="claim">{{e.claim}}</view>
+        <view class="src">来源：{{e.source}}</view>
+      </view>
+    </block>
+  </block>
+
+  <view wx:if="{{!entries.length}}" class="empty">没有找到匹配的年份或事件，试试换一个关键词。</view>
+  <view class="notice">私人开发 · 禁止外传 · 未经许可不得传播或转售</view>
+</view>

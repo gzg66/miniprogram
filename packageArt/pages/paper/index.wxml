@@ -1,0 +1,48 @@
+<!-- packageArt/pages/paper/index.wxml —— 开始考试后严格计时，计时结束才显示答案 -->
+<view class="wrap {{theme}}">
+  <scroll-view class="paper-pick" scroll-x>
+    <text wx:for="{{papers}}" wx:key="no" wx:for-item="p" class="p {{no===p.no?'on':''}}" data-no="{{p.no}}" bindtap="pick">{{p.no}}</text>
+  </scroll-view>
+
+  <view class="modes">
+    <text class="m {{mode==='paper'?'on':''}}" data-mode="paper" bindtap="setMode">试卷</text>
+    <text wx:if="{{examStatus==='finished'}}" class="m {{mode==='answer'?'on':''}}" data-mode="answer" bindtap="setMode">答案解析</text>
+  </view>
+
+  <view wx:if="{{examStatus==='idle'}}" class="exam-box idle">
+    <view class="exam-title">本卷尚未开始</view>
+    <view class="exam-desc">开始后展示题目，严格计时 180 分钟；考试期间不显示答案，计时结束后才开放答案解析。</view>
+    <button class="start-btn" bindtap="startExam">开始考试（180分钟）</button>
+  </view>
+  <view wx:if="{{examStatus==='running'}}" class="exam-box running">
+    <view class="exam-title">考试进行中</view>
+    <view class="timer">剩余时间 {{remainingText}}</view>
+    <view class="exam-desc">刷新页面或暂时离开不会重置考试，计时以结束时间为准。</view>
+  </view>
+  <view wx:if="{{examStatus==='finished'}}" class="exam-box finished">
+    <view class="exam-title">考试结束，答案已开放</view>
+    <view class="exam-desc">本卷 180 分钟计时已结束，现在可以查看答案解析。</view>
+  </view>
+
+  <view class="head">
+    <view class="title">{{paper.title}}</view>
+    <view class="meta">满分 150 分 · 考试时间 180 分钟</view>
+  </view>
+
+  <view class="ins">
+    <view class="ins-li" wx:for="{{paper.instructions}}" wx:key="*this">第 {{index + 1}} 条：{{item}}</view>
+  </view>
+
+  <block wx:if="{{examStatus!=='idle'}}" wx:for="{{paper.sections}}" wx:key="type" wx:for-item="sec">
+    <view class="sec-title">{{sec.type}}（{{sec.items.length}} 题 × {{sec.scorePerItem}} 分）</view>
+    <view class="qi" wx:for="{{sec.items}}" wx:key="id" wx:for-item="it">
+      <view class="stem">{{it.no}}．{{it.question}}</view>
+      <block wx:if="{{mode==='answer'}}">
+        <view class="src">【来源】{{it.book}}·{{it.chapter}}</view>
+        <freq-tag freq="{{it.frequency}}" stars="{{it.stars}}" />
+        <five-block item="{{it}}" />
+      </block>
+    </view>
+  </block>
+  <view wx:if="{{examStatus==='idle'}}" class="locked-note">点击“开始考试”后显示题目。</view>
+</view>

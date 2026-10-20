@@ -1,0 +1,40 @@
+/* app.wxss —— 莫兰迪·简约治愈视觉基线 */
+page {
+  --bg: #F3F0EC; --card: #FBFAF7; --card-soft: #F7F4F0;
+  --primary: #87998B; --primary-deep: #6F8275; --secondary: #B5A79B;
+  --text: #48443F; --muted: #918A82; --border: #E7E0D8;
+  --freq-high: #C48B80; --freq-mid: #C7AE86; --freq-low: #91A6AD;
+  --hl-bg: #F3E5E0; --hl-text: #A9685E;
+  background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.theme-dark, .dark {
+  --bg: #202522; --card: #2A302C; --card-soft: #303832;
+  --primary: #9CAF9F; --primary-deep: #C8D9CB; --secondary: #C1B5A9;
+  --text: #EDF0EA; --muted: #AEB8AF; --border: #465148;
+  --freq-high: #E7A59B; --freq-mid: #D8BF91; --freq-low: #A9C4CC;
+  --hl-bg: #604C42; --hl-text: #FFD4A8;
+  min-height: 100vh; background: var(--bg); color: var(--text);
+}
+.wrap { min-height: 100vh; background: var(--bg); color: var(--text); }
+.dark, .dark .wrap { background: var(--bg) !important; color: var(--text) !important; }
+.dark .policy, .dark .item, .dark .tab, .dark .card, .dark .section-card,
+.dark .year-card, .dark .memory-card, .dark .notice, .dark .ops,
+.dark .exam-box, .dark .qi, .dark .head, .dark .ins, .dark .locked-note {
+  background: var(--card) !important; color: var(--text) !important; border-color: var(--border) !important;
+}
+.dark .back, .dark .source, .dark .muted, .dark .sub, .dark .count,
+.dark .meta, .dark .entry-desc, .dark .mode-desc, .dark .chapter,
+.dark .line, .dark .src { color: var(--muted) !important; }
+.dark .search, .dark .ipt, .dark .input, .dark .textarea { background: var(--card-soft) !important; color: var(--text) !important; border-color: var(--border) !important; }
+.dark .user-hl { background: var(--hl-bg) !important; color: var(--hl-text) !important; }
+.theme-dark input, .theme-dark textarea { color: var(--text); background: var(--card-soft); border-color: var(--border); }
+.theme-dark button { color: var(--text); }
+view, text, input, button { box-sizing: border-box; }
+.body-text { font-size: 32rpx; line-height: 1.75; }
+.para { margin-bottom: 24rpx; }
+.card { background: var(--card); border: 1rpx solid var(--border); border-radius: 24rpx; padding: 28rpx; box-shadow: 0 10rpx 28rpx rgba(92, 78, 65, .06); }
+.hl { color: var(--hl-text); background: var(--hl-bg); font-weight: 700; }
+.sec-title { font-size: 36rpx; font-weight: 700; margin: 32rpx 0 16rpx; color: var(--text); }
+
+.notice { margin-top: 32rpx; padding: 20rpx 24rpx; text-align: center; font-size: 24rpx; color: var(--muted); background: rgba(251,250,247,.78); border: 1rpx solid var(--border); border-radius: 18rpx; }
+.danger { margin-top: 16rpx; padding: 22rpx; text-align: center; font-size: 28rpx; color: var(--freq-high); background: var(--card); border: 1rpx solid var(--border); border-radius: 18rpx; }

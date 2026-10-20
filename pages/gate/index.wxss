@@ -1,0 +1,10 @@
+/* pages/gate/index.wxss */
+.gate { padding: 150rpx 56rpx 80rpx; }
+.brand { font-size: 52rpx; font-weight: 700; color: var(--text); letter-spacing: 4rpx; }
+.sub { font-size: 28rpx; color: var(--muted); margin-top: 12rpx; }
+.card { background: var(--card); border: 1rpx solid var(--border); border-radius: 28rpx; padding: 40rpx 32rpx; margin-top: 64rpx; box-shadow: 0 12rpx 30rpx rgba(92,78,65,.07); }
+.label { font-size: 30rpx; color: var(--text); margin-bottom: 20rpx; }
+.ipt { height: 88rpx; background: var(--card-soft); border: 1rpx solid var(--border); border-radius: 16rpx; padding: 0 24rpx; font-size: 34rpx; letter-spacing: 2rpx; color: var(--text); }
+.err { color: var(--freq-high); font-size: 26rpx; margin-top: 16rpx; line-height: 1.6; }
+.btn { margin-top: 32rpx; background: var(--primary); color: #FFFFFF; border-radius: 999rpx; font-size: 32rpx; }
+.hint { font-size: 24rpx; color: var(--muted); margin-top: 24rpx; text-align: center; }

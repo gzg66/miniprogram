@@ -1,0 +1,52 @@
+<view class="five">
+  <view class="mark-tools">
+    <text class="mark-title">背诵内容画笔</text>
+    <text class="mark-tip">开启后可在内容上自由勾画</text>
+    <view class="mark-colors">
+      <view wx:for="{{colors}}" wx:key="*this" class="mark-color {{item===color?'selected':''}}" style="background:{{item}}" data-color="{{item}}" bindtap="onColor"></view>
+    </view>
+    <view class="mark-action {{penMode?'active':''}}" bindtap="togglePen">{{penMode?'退出画笔':'开始勾画'}}</view>
+    <view class="mark-action {{canUndo?'':'disabled'}}" wx:if="{{penMode}}" bindtap="undoDrawing">撤回</view>
+    <view class="mark-action {{localStrokes.length?'':'disabled'}}" wx:if="{{penMode}}" bindtap="clearDrawing">清空</view>
+  </view>
+
+  <view id="inkContent" class="ink-content">
+    <view class="sec">
+      <view class="sec-title">一、标准答案（阅卷版）</view>
+      <view class="para body-text" wx:for="{{view.answer}}" wx:for-item="answerItem" wx:key="key">
+        <keyword-mark text="{{answerItem.text}}" terms="{{view.mustWrite}}" />
+      </view>
+    </view>
+
+    <view class="sec" wx:if="{{item.keyPoints.length}}">
+      <view class="sec-title">二、重点标红（高频考点）</view>
+      <view class="para body-text" wx:for="{{view.keyPoints}}" wx:for-item="pointItem" wx:key="key">
+        <keyword-mark text="{{pointItem.text}}" terms="{{view.mustWrite}}" />
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-title">三、逻辑背诵框架</view>
+      <view class="para body-text logic-guide" wx:if="{{item.framework.memoryLogic}}"><text class="label">背诵顺序：</text>{{item.framework.memoryLogic}}</view>
+      <view class="para body-text"><text class="label">总起：</text>{{item.framework.tongqi}}</view>
+      <view class="para body-text" wx:for="{{view.frameworkPoints}}" wx:for-item="frameworkItem" wx:key="key"><text class="label">分点{{index + 1}}：</text>{{frameworkItem.text}}</view>
+      <view class="para body-text" wx:if="{{item.framework.end}}"><text class="label">结尾：</text>{{item.framework.end}}</view>
+      <view class="terms" wx:if="{{item.framework.mustWrite.length}}">
+        <text class="term" wx:for="{{item.framework.mustWrite}}" wx:for-item="term" wx:key="*this">{{term}}</text>
+      </view>
+    </view>
+
+    <view class="sec" wx:if="{{item.tips}}">
+      <view class="sec-title">四、背诵技巧（怎么背 / 得分点）</view>
+      <view class="para body-text">{{item.tips}}</view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-title">五、配套举例（案例佐证）</view>
+      <view class="para body-text" wx:for="{{view.cases}}" wx:for-item="caseItem" wx:key="key">· {{caseItem.text}}</view>
+      <view class="para body-text muted" wx:if="{{!item.cases.length}}">本题为题库精简条目：案例请结合教材相应章节自行补充。</view>
+    </view>
+
+    <canvas wx:if="{{penMode}}" id="inkCanvas" type="2d" class="ink-canvas" style="height:{{canvasHeight}}px" disable-scroll bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchEnd"></canvas>
+  </view>
+</view>

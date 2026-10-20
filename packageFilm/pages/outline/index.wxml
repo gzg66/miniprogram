@@ -1,0 +1,43 @@
+<view class="wrap {{theme}}">
+  <view class="head"><text class="title">电影概论考点梳理</text><text class="back" bindtap="back">← 返回</text></view>
+
+  <block wx:if="{{!selected}}">
+    <view class="module" wx:for="{{modules}}" wx:key="*this">
+      <view class="module-title">{{item}}</view>
+      <view class="chapter" wx:for="{{chapters}}" wx:for-item="chapter" wx:key="chapterNo" wx:if="{{chapter.module===item}}" data-no="{{chapter.chapterNo}}" bindtap="openChapter">
+        <text>{{chapter.chapter}}</text><text class="cnt">{{chapter.sections.length}} 节</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{selected}}">
+    <view class="badge">{{selected.module}} · 第{{selected.chapterNo}}章</view>
+    <view class="card"><view class="chapter-title">{{selected.chapter}}</view><view class="muted">本章主线：{{selected.focus}}</view></view>
+    <view class="label">① 核心名词解释</view>
+    <view class="card chips"><text class="chip" wx:for="{{selected.coreTerms}}" wx:key="*this">{{item}}</text></view>
+    <view class="label">② 艺术特点 / 风格特征</view>
+    <view class="card"><view class="bullet" wx:for="{{selected.styleFeatures}}" wx:key="*this">· {{item}}</view></view>
+    <view class="label">③ 功能与作用</view>
+    <view class="card">{{selected.function}}</view>
+    <view class="label">④ 考研简答答题框架</view>
+    <view class="card"><view class="bullet" wx:for="{{selected.answerFramework}}" wx:key="*this">{{index+1}}. {{item}}</view></view>
+    <view class="label">高频考点</view>
+    <view class="card chips"><text class="chip high" wx:for="{{selected.highFrequency}}" wx:key="*this">{{item}}</text></view>
+    <view class="label">选择 / 填空小点</view>
+    <view class="card chips"><text class="chip mid" wx:for="{{selected.choiceFill}}" wx:key="*this">{{item}}</text></view>
+
+    <view class="label">逐节背诵卡（共{{selected.sections.length}}节）</view>
+    <view class="section-card" wx:for="{{selected.sections}}" wx:key="title">
+      <view class="section-title">{{item.title}}<text class="high-mark" wx:if="{{item.highFrequency}}">高频</text></view>
+      <view class="mini">① 核心名词</view>
+      <view class="chips"><text class="chip" wx:for="{{item.coreTerms}}" wx:key="*this">{{item}}</text></view>
+      <view class="mini">② 艺术特点 / 风格</view>
+      <view class="bullet" wx:for="{{item.styleFeatures}}" wx:key="*this">· {{item}}</view>
+      <view class="mini">③ 功能与作用</view><view class="muted">{{item.function}}</view>
+      <view class="mini">④ 简答框架</view>
+      <view class="bullet" wx:for="{{item.answerFramework}}" wx:key="*this">{{index+1}}. {{item}}</view>
+      <view class="mini">选择 / 填空</view>
+      <view class="chips"><text class="chip mid" wx:for="{{item.choiceFill}}" wx:key="*this">{{item}}</text></view>
+    </view>
+  </block>
+</view>

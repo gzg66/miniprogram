@@ -1,0 +1,20 @@
+/* packageFilm/pages/entity/index.wxss */
+.wrap { padding: 24rpx 24rpx 80rpx; }
+.head { background: var(--card); border-radius: 20rpx; padding: 28rpx; }
+.name { font-size: 40rpx; font-weight: 700; color: var(--text); }
+.meta { font-size: 26rpx; color: var(--muted); margin-top: 10rpx; }
+.sec { font-size: 32rpx; font-weight: 700; color: var(--text); margin: 28rpx 0 14rpx; }
+.card { background: var(--card); border-radius: 16rpx; padding: 24rpx; margin-bottom: 14rpx; }
+.logic { background: var(--card-soft); }
+.logic-line { display: flex; align-items: flex-start; gap: 14rpx; font-size: 28rpx; line-height: 1.75; color: var(--text); margin: 6rpx 0; }
+.logic-no { flex: 0 0 38rpx; width: 38rpx; height: 38rpx; line-height: 38rpx; text-align: center; border-radius: 50%; background: var(--primary); color: #fff; font-size: 24rpx; }
+.para { font-size: 30rpx; line-height: 1.75; color: var(--text); }
+.frow { display: flex; align-items: baseline; margin-bottom: 8rpx; }
+.fyear { font-size: 32rpx; font-weight: 700; color: var(--freq-high); margin-right: 16rpx; }
+.ftitle { font-size: 32rpx; font-weight: 600; color: var(--text); }
+.line { font-size: 28rpx; line-height: 1.75; color: var(--text); margin-top: 6rpx; }
+.src { font-size: 22rpx; color: var(--muted); margin-top: 10rpx; }
+.rel { font-size: 28rpx; line-height: 1.8; color: var(--secondary); }
+.terms { display: flex; flex-wrap: wrap; gap: 12rpx; }
+.term { padding: 8rpx 16rpx; border-radius: 999rpx; background: var(--hl-bg); color: var(--hl-text); font-size: 26rpx; }
+.notice { margin-top: 32rpx; padding: 20rpx 24rpx; text-align: center; font-size: 24rpx; color: var(--muted); background: var(--card); border-radius: 16rpx; }

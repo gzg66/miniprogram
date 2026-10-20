@@ -1,0 +1,1 @@
+<view class="tag {{cls}}">{{label}}<text wx:if="{{stars}}" class="stars"> {{stars}}★</text></view>

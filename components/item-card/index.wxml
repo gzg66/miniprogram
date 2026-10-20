@@ -1,0 +1,7 @@
+<view class="item-card" bindtap="onTap">
+  <view class="row">
+    <text class="q">{{item.question}}</text>
+    <freq-tag freq="{{item.frequency}}" stars="{{item.stars}}" />
+  </view>
+  <view class="meta">{{item.chapter}} · {{item.type}}</view>
+</view>

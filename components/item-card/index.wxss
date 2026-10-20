@@ -1,0 +1,4 @@
+.item-card { background: var(--card); border-radius: 16rpx; padding: 24rpx; margin-bottom: 16rpx; }
+.row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12rpx; }
+.q { font-size: 32rpx; font-weight: 600; flex: 1; }
+.meta { font-size: 24rpx; color: var(--muted); margin-top: 10rpx; }
